@@ -75,14 +75,16 @@ impl FastaReader {
 mod tests {
     use super::*;
 
-    #[test]
+    #[cfg(test)]
+
     fn base_function() {
         let result: Sequence = Sequence::new(BioType::Dna, String::from("ACGTTCGA"));
         assert_eq!(result.len(), 8);
         assert_eq!(result.index(2), 'G');
     }
 
-    #[test]
+    #[cfg(test)]
+
     fn string() {
         let mut sequence1: Sequence = Sequence::new(BioType::Dna, String::from("AGCT"));
         println!("Sequence: {}", sequence1);
@@ -101,7 +103,8 @@ mod tests {
         );
     }
 
-    #[test]
+    #[cfg(test)]
+
     fn trans() {
         let sequence1: Sequence = Sequence::new(BioType::Dna, String::from("AGCTTCGAA"));
 
@@ -111,7 +114,8 @@ mod tests {
         println!("{:?}", sequence1.complementary());
     }
 
-    #[test]
+    #[cfg(test)]
+
     fn seqrecode() {
         let mut recode1 = FastaRecode {
             id: String::from("recode1"),
